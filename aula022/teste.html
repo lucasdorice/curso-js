@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste</title>
+</head>
+<body>
+    <button id="botaoMensagem">Exibir</button>
+    <div id="mensagem"></div>
+
+    <form action="" method="post" id="formulario">
+        <input type="number" name="input-n1" id="input-n1">
+        <input type="number" name="input-n2" id="input-n2">
+        <button>Somar</button>
+    </form>
+
+    <script>
+        const botaoMensagem = document.querySelector(`button#botaoMensagem`);
+
+        botaoMensagem.addEventListener(`click`, function (e) {
+            exibirMensagem();
+        })
+
+        function exibirMensagem (mensagem) {
+            const divMensagem = document.querySelector(`div#mensagem`);
+            divMensagem.innerHTML = ``;
+
+            const p = document.createElement(`p`);
+            divMensagem.appendChild(p);
+            p.innerHTML = `Olá, mundo!`
+        }
+
+        const formulario = document.querySelector(`form#formulario`);
+
+        formulario.addEventListener(`submit`, function (e) {
+            e.preventDefault()
+            selecionarNum1()
+            converterNum1()
+            selecionarNum2()
+            converterNum2()
+            somar()
+        })
+
+        function selecionarNum1 () {
+            const n1 = document.querySelector(`input#input-n1`);
+            return n1;
+        }
+
+        function converterNum1 () {
+            const n1 = Number(selecionarNum1().value);
+            return n1;
+        }
+
+        function selecionarNum2 () {
+            const n2 = document.querySelector(`input#input-n2`);
+            return n2;
+        }
+
+        function converterNum2 () {
+            const n2 = Number(selecionarNum2().value);
+            return n2;
+        }
+
+        function somar () {
+            const n1 = converterNum1();
+            const n2 = converterNum2();
+            const soma = n1 + n2;
+        }
+    </script>
+</body>
+</html>
